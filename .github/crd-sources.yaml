@@ -1,0 +1,11 @@
+# Upstream releases whose CRDs are converted into this catalog. Renovate bumps `version`,
+# then .github/workflows/crd-regenerate.yaml rebuilds the schemas on the Renovate branch.
+# A path ending in / takes every .yaml file in that directory, so new CRDs are picked up.
+- repo: agentgateway/agentgateway
+  version: v1.6.0
+  paths:
+    - controller/install/helm/agentgateway-crds/templates/
+- repo: kedacore/http-add-on
+  version: v0.16.0
+  paths:
+    - config/crd/bases/http.keda.sh_interceptorroutes.yaml

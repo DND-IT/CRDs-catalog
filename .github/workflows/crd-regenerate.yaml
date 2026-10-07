@@ -1,0 +1,66 @@
+name: Regenerate CRD schemas
+on:
+  pull_request:
+    paths: ['.github/crd-sources.yaml']
+permissions:
+  contents: read
+concurrency:
+  group: crd-regenerate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  regenerate:
+    # Only Renovate's own branches: the job pushes with an app token so the push triggers CI.
+    if: github.event.pull_request.user.login == 'renovate[bot]' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
+        id: app-token
+        with:
+          app-id: ${{ vars.FISSION_GH_APP_ID }}
+          private-key: ${{ secrets.FISSION_GH_APP_PRIVATE_KEY }}
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ steps.app-token.outputs.token }}
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --require-hashes --only-binary=":all:" -r .github/scripts/requirements.txt
+      - name: Regenerate schemas
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python .github/scripts/crd_regenerate.py .github/crd-sources.yaml --table "$RUNNER_TEMP/table.md" --written "$RUNNER_TEMP/written.txt"
+      - name: Commit changed schemas
+        run: |
+          git add --pathspec-from-file="$RUNNER_TEMP/written.txt"
+          if git diff --cached --quiet; then
+            echo "Schemas already match crd-sources.yaml."
+            exit 0
+          fi
+          # Listed in renovate.json gitIgnoredAuthors so Renovate keeps managing the branch.
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m "chore(crds): regenerate schemas from crd-sources.yaml"
+          git push
+      - name: Post source table
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          marker='<!-- crd-regenerate -->'
+          {
+            echo "$marker"
+            echo "Schemas regenerated with \`Utilities/openapi2jsonschema.py\` from the commit each release tag in \`.github/crd-sources.yaml\` points to."
+            echo
+            cat "$RUNNER_TEMP/table.md"
+          } > "$RUNNER_TEMP/comment.md"
+          id=$(gh api "repos/$GITHUB_REPOSITORY/issues/$PR/comments" --paginate \
+            --jq ".[] | select(.body | startswith(\"$marker\")) | .id" | head -n 1)
+          if [ -n "$id" ]; then
+            gh api --method PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$id" -F body=@"$RUNNER_TEMP/comment.md" > /dev/null
+          else
+            gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/comment.md"
+          fi
