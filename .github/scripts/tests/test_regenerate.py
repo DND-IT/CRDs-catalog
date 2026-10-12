@@ -46,9 +46,9 @@ class RegenerateTests(unittest.TestCase):
         self.assertFalse(schema['properties']['spec']['additionalProperties'])
         self.assertNotIn('additionalProperties', schema)
 
-    def test_convert_rejects_yaml_aliases(self):
+    def test_convert_rejects_cyclic_yaml_aliases(self):
         with tempfile.TemporaryDirectory() as workdir, self.assertRaises(p.PolicyError):
-            r.convert(b'a: &x {}\nb: *x\n', workdir)
+            r.convert(b'a: &x [*x]\n', workdir)
 
     def test_regenerate_writes_schemas_and_pinned_sources(self):
         def fake_get(url, raw=False):
