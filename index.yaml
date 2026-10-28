@@ -1095,6 +1095,31 @@ app.redislabs.com:
     filename: app.redislabs.com/redisenterprisecluster_v1.json
     kind: RedisEnterpriseCluster
     name: redisenterprisecluster_v1
+app.terraform.io:
+  - apiVersion: app.terraform.io/v1alpha2
+    filename: app.terraform.io/agenttoken_v1alpha2.json
+    kind: AgentToken
+    name: agenttoken_v1alpha2
+  - apiVersion: app.terraform.io/v1alpha2
+    filename: app.terraform.io/agentpool_v1alpha2.json
+    kind: AgentPool
+    name: agentpool_v1alpha2
+  - apiVersion: app.terraform.io/v1alpha2
+    filename: app.terraform.io/project_v1alpha2.json
+    kind: Project
+    name: project_v1alpha2
+  - apiVersion: app.terraform.io/v1alpha2
+    filename: app.terraform.io/workspace_v1alpha2.json
+    kind: Workspace
+    name: workspace_v1alpha2
+  - apiVersion: app.terraform.io/v1alpha2
+    filename: app.terraform.io/module_v1alpha2.json
+    kind: Module
+    name: module_v1alpha2
+  - apiVersion: app.terraform.io/v1alpha2
+    filename: app.terraform.io/runscollector_v1alpha2.json
+    kind: RunsCollector
+    name: runscollector_v1alpha2
 appcat.vshn.io:
   - apiVersion: appcat.vshn.io/v1
     filename: appcat.vshn.io/xobjectbucket_v1.json
@@ -1801,6 +1826,27 @@ backupdr.cnrm.cloud.google.com:
     filename: backupdr.cnrm.cloud.google.com/backupdrbackupplanassociation_v1beta1.json
     kind: BackupDRBackupPlanAssociation
     name: backupdrbackupplanassociation_v1beta1
+ballast.tightlinesoftware.com:
+  - apiVersion: ballast.tightlinesoftware.com/v1
+    filename: ballast.tightlinesoftware.com/metricssource_v1.json
+    kind: MetricsSource
+    name: metricssource_v1
+  - apiVersion: ballast.tightlinesoftware.com/v1
+    filename: ballast.tightlinesoftware.com/workloadprofile_v1.json
+    kind: WorkloadProfile
+    name: workloadprofile_v1
+  - apiVersion: ballast.tightlinesoftware.com/v1
+    filename: ballast.tightlinesoftware.com/ballastconfig_v1.json
+    kind: BallastConfig
+    name: ballastconfig_v1
+  - apiVersion: ballast.tightlinesoftware.com/v1
+    filename: ballast.tightlinesoftware.com/clusterresourcepolicy_v1.json
+    kind: ClusterResourcePolicy
+    name: clusterresourcepolicy_v1
+  - apiVersion: ballast.tightlinesoftware.com/v1
+    filename: ballast.tightlinesoftware.com/resourcepolicy_v1.json
+    kind: ResourcePolicy
+    name: resourcepolicy_v1
 barmancloud.cnpg.io:
   - apiVersion: barmancloud.cnpg.io/v1
     filename: barmancloud.cnpg.io/objectstore_v1.json
@@ -3749,6 +3795,70 @@ configuration.konghq.com:
     filename: configuration.konghq.com/kongvault_v1alpha1.json
     kind: KongVault
     name: kongvault_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongcredentialapikey_v1alpha1.json
+    kind: KongCredentialAPIKey
+    name: kongcredentialapikey_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongupstream_v1alpha1.json
+    kind: KongUpstream
+    name: kongupstream_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongsni_v1alpha1.json
+    kind: KongSNI
+    name: kongsni_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongkeyset_v1alpha1.json
+    kind: KongKeySet
+    name: kongkeyset_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongcredentialacl_v1alpha1.json
+    kind: KongCredentialACL
+    name: kongcredentialacl_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongcertificate_v1alpha1.json
+    kind: KongCertificate
+    name: kongcertificate_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongdataplaneclientcertificate_v1alpha1.json
+    kind: KongDataPlaneClientCertificate
+    name: kongdataplaneclientcertificate_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongtarget_v1alpha1.json
+    kind: KongTarget
+    name: kongtarget_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongservice_v1alpha1.json
+    kind: KongService
+    name: kongservice_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongpluginbinding_v1alpha1.json
+    kind: KongPluginBinding
+    name: kongpluginbinding_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongkey_v1alpha1.json
+    kind: KongKey
+    name: kongkey_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongroute_v1alpha1.json
+    kind: KongRoute
+    name: kongroute_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongcredentialbasicauth_v1alpha1.json
+    kind: KongCredentialBasicAuth
+    name: kongcredentialbasicauth_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongcacertificate_v1alpha1.json
+    kind: KongCACertificate
+    name: kongcacertificate_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongcredentialjwt_v1alpha1.json
+    kind: KongCredentialJWT
+    name: kongcredentialjwt_v1alpha1
+  - apiVersion: configuration.konghq.com/v1alpha1
+    filename: configuration.konghq.com/kongcredentialhmac_v1alpha1.json
+    kind: KongCredentialHMAC
+    name: kongcredentialhmac_v1alpha1
 connections.grafana.crossplane.io:
   - apiVersion: connections.grafana.crossplane.io/v1alpha1
     filename: connections.grafana.crossplane.io/metricsendpointscrapejob_v1alpha1.json
@@ -7761,6 +7871,22 @@ gravitee.io:
     filename: gravitee.io/application_v1alpha1.json
     kind: application
     name: application_v1alpha1
+  - apiVersion: gravitee.io/v1alpha1
+    filename: gravitee.io/dictionary_v1alpha1.json
+    kind: Dictionary
+    name: dictionary_v1alpha1
+  - apiVersion: gravitee.io/v1alpha1
+    filename: gravitee.io/documentation_v1alpha1.json
+    kind: Documentation
+    name: documentation_v1alpha1
+  - apiVersion: gravitee.io/v1alpha1
+    filename: gravitee.io/portallisting_v1alpha1.json
+    kind: PortalListing
+    name: portallisting_v1alpha1
+  - apiVersion: gravitee.io/v1alpha1
+    filename: gravitee.io/portal_v1alpha1.json
+    kind: Portal
+    name: portal_v1alpha1
 groupsnapshot.storage.k8s.io:
   - apiVersion: groupsnapshot.storage.k8s.io/v1beta1
     filename: groupsnapshot.storage.k8s.io/volumegroupsnapshot_v1beta1.json
@@ -9240,6 +9366,11 @@ instancetype.kubevirt.io:
     filename: instancetype.kubevirt.io/virtualmachinepreference_v1alpha1.json
     kind: VirtualMachinePreference
     name: virtualmachinepreference_v1alpha1
+internal.kro.run:
+  - apiVersion: internal.kro.run/v1alpha1
+    filename: internal.kro.run/graphrevision_v1alpha1.json
+    kind: GraphRevision
+    name: graphrevision_v1alpha1
 ipam.cluster.x-k8s.io:
   - apiVersion: ipam.cluster.x-k8s.io/v1alpha1
     filename: ipam.cluster.x-k8s.io/ipaddressclaim_v1alpha1.json
@@ -9701,6 +9832,51 @@ kafka.strimzi.io:
     filename: kafka.strimzi.io/kafkamirrormaker2_v1.json
     kind: kafkamirrormaker2
     name: kafkamirrormaker2_v1
+kagent.dev:
+  - apiVersion: kagent.dev/v1alpha1
+    filename: kagent.dev/toolserver_v1alpha1.json
+    kind: ToolServer
+    name: toolserver_v1alpha1
+  - apiVersion: kagent.dev/v1alpha2
+    filename: kagent.dev/modelconfig_v1alpha2.json
+    kind: ModelConfig
+    name: modelconfig_v1alpha2
+  - apiVersion: kagent.dev/v1alpha2
+    filename: kagent.dev/agent_v1alpha2.json
+    kind: Agent
+    name: agent_v1alpha2
+  - apiVersion: kagent.dev/v1alpha1
+    filename: kagent.dev/mcpserver_v1alpha1.json
+    kind: MCPServer
+    name: mcpserver_v1alpha1
+  - apiVersion: kagent.dev/v1alpha1
+    filename: kagent.dev/modelconfig_v1alpha1.json
+    kind: ModelConfig
+    name: modelconfig_v1alpha1
+  - apiVersion: kagent.dev/v1alpha2
+    filename: kagent.dev/sandboxagent_v1alpha2.json
+    kind: SandboxAgent
+    name: sandboxagent_v1alpha2
+  - apiVersion: kagent.dev/v1alpha2
+    filename: kagent.dev/remotemcpserver_v1alpha2.json
+    kind: RemoteMCPServer
+    name: remotemcpserver_v1alpha2
+  - apiVersion: kagent.dev/v1alpha1
+    filename: kagent.dev/agent_v1alpha1.json
+    kind: Agent
+    name: agent_v1alpha1
+  - apiVersion: kagent.dev/v1alpha1
+    filename: kagent.dev/memory_v1alpha1.json
+    kind: Memory
+    name: memory_v1alpha1
+  - apiVersion: kagent.dev/v1alpha2
+    filename: kagent.dev/modelproviderconfig_v1alpha2.json
+    kind: ModelProviderConfig
+    name: modelproviderconfig_v1alpha2
+  - apiVersion: kagent.dev/v1alpha2
+    filename: kagent.dev/agentharness_v1alpha2.json
+    kind: AgentHarness
+    name: agentharness_v1alpha2
 kargo.akuity.io:
   - apiVersion: kargo.akuity.io/v1alpha1
     filename: kargo.akuity.io/project_v1alpha1.json
@@ -13708,6 +13884,10 @@ psmdb.percona.com:
     filename: psmdb.percona.com/perconaservermongodbbackup_v1.json
     kind: perconaservermongodbbackup
     name: perconaservermongodbbackup_v1
+  - apiVersion: psmdb.percona.com/v1
+    filename: psmdb.percona.com/perconaservermongodbclustersync_v1.json
+    kind: perconaservermongodbclustersync
+    name: perconaservermongodbclustersync_v1
 pubsub.cnrm.cloud.google.com:
   - apiVersion: pubsub.cnrm.cloud.google.com/v1beta1
     filename: pubsub.cnrm.cloud.google.com/pubsubsubscription_v1beta1.json
